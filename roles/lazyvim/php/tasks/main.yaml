@@ -1,0 +1,15 @@
+  - ansible.builtin.include_tasks:
+      file: packages.yaml
+    tags:
+      - always
+      - lazyvim
+  - ansible.builtin.include_tasks:
+      file: phpactor.yaml
+    tags:
+      - always
+      - lazyvim
+  - ansible.builtin.include_tasks:
+      file: xdebug.yaml
+    tags:
+      - always
+      - lazyvim

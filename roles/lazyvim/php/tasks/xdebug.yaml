@@ -1,0 +1,20 @@
+- name: Clone Vscode xdebug
+  ansible.builtin.git:
+    repo: https://github.com/xdebug/vscode-php-debug.git
+    dest: ~/.config/nvim-external/vscode-php-debug
+  tags:
+    - php
+
+- name: Install and Build xdebug
+  ansible.builtin.shell:
+    cmd: npm install && npm run build
+    chdir: ~/.config/nvim-external/vscode-php-debug/
+  tags:
+    - php
+
+- name: Get xdebug.ini config
+  ansible.builtin.git:
+    repo: https://gist.github.com/a505bd545524ce99babe44653201b7dc.git
+    dest: ~/.config/nvim-external/xdebug-config/
+  tags:
+    - php

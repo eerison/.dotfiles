@@ -1,0 +1,8 @@
+- name: Download phpactor
+  ansible.builtin.get_url:
+    url: https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar
+    dest: ~/.local/bin/phpactor
+    mode: 'a+x'
+  tags:
+    - php
+
