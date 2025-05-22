@@ -1,0 +1,8 @@
+- name: install php & packages
+  become: yes
+  apt:
+    state: latest
+    pkg:
+      - php-mbstring #phpunit require it.
+  tags:
+    - php

@@ -1,4 +1,5 @@
 - name: Check dependencies
+  become: yes
   ansible.builtin.apt:
     name:
       - php

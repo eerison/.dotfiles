@@ -4,6 +4,11 @@
       - always
       - lazyvim
   - ansible.builtin.include_tasks:
+      file: php-apt.yaml
+    tags:
+      - always
+      - lazyvim
+  - ansible.builtin.include_tasks:
       file: phpactor.yaml
     tags:
       - always
