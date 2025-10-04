@@ -1,3 +1,10 @@
+- name: ensures ~/.local/bin dir exists
+  file: 
+    path: "~/.local/bin"
+    state: directory
+  tags:
+    - php
+
 - name: Download phpactor
   ansible.builtin.get_url:
     url: https://github.com/phpactor/phpactor/releases/latest/download/phpactor.phar

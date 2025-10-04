@@ -1,8 +1,23 @@
-- name: install php & packages
+- name: install php & packages (Debian/Ubuntu)
   become: yes
   apt:
+    name:
+      - php-mbstring
     state: latest
-    pkg:
-      - php-mbstring #phpunit require it.
-  tags:
-    - php
+    update_cache: yes
+  when: ansible_facts['os_family'] == 'Debian'
+  tags: ['php', 'debian']
+
+# ISSUE: It is not working as expected, 
+  #  workaround for this is install php84-mbstring manually.
+
+# - name: install php & packages (Arch - AUR)
+#   become: yes
+#   become_user: aur_builder   # non-root AUR build user
+#   community.general.aur:
+#     name:
+#       - php-mbstring
+#     state: present
+#     use: yay
+#   when: ansible_facts['os_family'] == 'Archlinux'
+#   tags: ['php', 'arch']
